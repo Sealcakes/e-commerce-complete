@@ -1,0 +1,61 @@
+.navbar {
+  display: flex;
+  background-color: #232f3e;
+}
+
+.image {
+  padding: 10px 10px;
+}
+
+.gpsContainer {
+  padding: 10px 0;
+  margin-left: 10px;
+}
+
+.icon {
+  color: white;
+}
+
+.helloSpan {
+  font-size: 12px;
+  color: white;
+}
+
+.addressSpan {
+  font-size: 16px;
+  color: white;
+  font-weight: 800;
+}
+
+.searchBar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 15px;
+  line-height: 2;
+  width: 55vw;
+}
+
+.searchBarForm {
+  display: inline-block;
+}
+
+.selectBox {
+  padding: 5px 0;
+  width: auto;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: #999;
+}
+
+.searchBarInput {
+  line-height: 2;
+  font-size: 16px;
+  width: 45vw;
+}
+
+.searchIcon {
+  padding: 0 10px 0 10px;
+  background-color: orange;
+  height: 20px;
+}
