@@ -27,13 +27,13 @@ export default function Navbar() {
             <option value='music'>CDs & Vinyls</option>
             <option value='gaming'>Gaming</option>
           </select>
-          <input className={styles.searchBarInput} type="text" placeholder="Search Amazon" />
+          <input className={styles.searchBarInput} type="text" placeholder="Search Congo..." />
           <button className={styles.searchIcon} type="submit"><FontAwesomeIcon icon={faMagnifyingGlass} height={20}/></button>
         </form>
       </div>
       <div className={styles.btnsContainer}>
         <div className={styles.signinBtnContainer}>
-          <button className={styles.signinBtn}>Sign in</button>
+          <button className={styles.signinBtn}>Sign In</button>
         </div>
         <div className={styles.cartBtnContainer}>
           <button className={styles.cartBtn}><FontAwesomeIcon icon={faCartShopping} height={20}/></button>

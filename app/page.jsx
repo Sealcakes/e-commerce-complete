@@ -1,10 +1,10 @@
-import './page.module.css';
+import styles from './page.module.css';
 
 export default async function Home() {
   return (
     <main>
-      <div>
-        <h2>This is the homepage.</h2>
+      <div className={styles.heroSection}>
+
       </div>
     </main>
   )
