@@ -1,13 +1,13 @@
 import Image from "next/image";
 import styles from "./Navbar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faLocationDot, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
+import { faLocationDot, faMagnifyingGlass, faCartShopping } from "@fortawesome/free-solid-svg-icons"
 
 export default function Navbar() {
   return (
     <div className={styles.navbar}>
       <Image
-        src="/amazon-logo-transparent.png"
+        src="/Congo_logo.png"
         alt=""
         height={170}
         width={170}
@@ -28,8 +28,16 @@ export default function Navbar() {
             <option value='gaming'>Gaming</option>
           </select>
           <input className={styles.searchBarInput} type="text" placeholder="Search Amazon" />
-          <button type="submit"><FontAwesomeIcon className={styles.searchIcon} icon={faMagnifyingGlass} /></button>
+          <button className={styles.searchIcon} type="submit"><FontAwesomeIcon icon={faMagnifyingGlass} height={20}/></button>
         </form>
+      </div>
+      <div className={styles.btnsContainer}>
+        <div className={styles.signinBtnContainer}>
+          <button className={styles.signinBtn}>Sign in</button>
+        </div>
+        <div className={styles.cartBtnContainer}>
+          <button className={styles.cartBtn}><FontAwesomeIcon icon={faCartShopping} height={20}/></button>
+        </div>
       </div>
     </div>
   );

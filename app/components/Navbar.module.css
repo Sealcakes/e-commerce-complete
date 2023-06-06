@@ -1,5 +1,7 @@
 .navbar {
   display: flex;
+  align-items: center;
+  gap: 20px;
   background-color: #232f3e;
 }
 
@@ -29,15 +31,13 @@
 
 .searchBar {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   margin-left: 15px;
-  line-height: 2;
-  width: 55vw;
+  width: 65vw;
 }
 
 .searchBarForm {
-  display: inline-block;
+  display: flex;
 }
 
 .selectBox {
@@ -55,7 +55,40 @@
 }
 
 .searchIcon {
-  padding: 0 10px 0 10px;
+  display: flex;
+  align-items: center;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 10px;
   background-color: orange;
-  height: 20px;
+  height: 35px;
+}
+
+.btnsContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 40px;
+}
+
+.signinBtnContainer {
+  display: flex;
+  align-items: center;
+}
+
+.signinBtn {
+  background-color: orange;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.cartBtnContainer {
+  display: flex;
+  align-items: center;
+}
+
+.cartBtn {
+  background-color: orange;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
