@@ -14,7 +14,7 @@ export async function GET(request, { params }) {
 
   let product;
   try {
-    product = await Product.find({}).limit(20);
+    product = await Product.findById(id, "Title Description")
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: 'An error occurred'}, { status: 500 });
@@ -23,6 +23,7 @@ export async function GET(request, { params }) {
   if (!product) {
     return NextResponse.json({ product: null }, { status: 404 });
   }
+
 
   return NextResponse.json({ product })
 }
