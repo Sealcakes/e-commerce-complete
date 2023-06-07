@@ -27,7 +27,7 @@ export default async function Home() {
       <div className={styles.heroSection}>
         <h2>Homepage</h2>
         <div className={styles.productCardsContainer}>
-          {products.product.map((product, idx) => {
+          {products.map((product, idx) => {
             // grabs the first image url if there are multiple and rejects any string that doesn't contain correct file extension
             const imageUrlString = product["Image Url"];
             const validExtensionsRegex = /\.(jpeg|jpg|gif|png)$/i;
@@ -59,7 +59,7 @@ export default async function Home() {
             }
 
             return (
-              <div className={styles.productCard}>
+              <div key={idx} className={styles.productCard}>
                 <h2 className={styles.productTitle}>{product.Title}</h2>
                 <img className={styles.productImg} src={imageUrl} />
                 <p className={styles.productPrice}>{productPrice}</p>
