@@ -1,9 +1,20 @@
+'use client';
+
 import Image from "next/image";
 import styles from "./Navbar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faLocationDot, faMagnifyingGlass, faCartShopping } from "@fortawesome/free-solid-svg-icons"
 
+
+
 export default function Navbar() {
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(e);
+  }
+
   return (
     <div className={styles.navbar}>
       <Image
@@ -19,7 +30,7 @@ export default function Navbar() {
         <span className={styles.addressSpan}>Select your address!</span>
       </div>
       <div className={styles.searchBar}>
-        <form className={styles.searchBarForm}>
+        <form onSubmit={handleSubmit} className={styles.searchBarForm}>
           <select className={styles.selectBox}>
             <option value='all-departments'>All</option>
             <option value='electronics'>Electronics</option>
@@ -33,10 +44,10 @@ export default function Navbar() {
       </div>
       <div className={styles.btnsContainer}>
         <div className={styles.signinBtnContainer}>
-          <button className={styles.signinBtn}>Sign In</button>
+          <button onClick={handleSubmit} className={styles.signinBtn}>Sign In</button>
         </div>
         <div className={styles.cartBtnContainer}>
-          <button className={styles.cartBtn}><FontAwesomeIcon icon={faCartShopping} height={20}/></button>
+          <button onClick={handleSubmit} className={styles.cartBtn}><FontAwesomeIcon icon={faCartShopping} height={20}/></button>
         </div>
       </div>
     </div>

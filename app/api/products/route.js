@@ -4,13 +4,9 @@ import { Product } from "@/app/models/products";
 
 
 
-export async function GET(request, { params }) {
+export async function GET() {
   
   await dbConnect();
-  
-  
-  const id = params.id.split('_').slice(-1)[0];
-  console.log(id)
 
   let product;
   try {
