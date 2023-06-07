@@ -8,17 +8,17 @@ export async function GET() {
   
   await dbConnect();
 
-  let product;
+  let products;
   try {
-    product = await Product.find({}).limit(20);
-  } catch (error) {
-    console.error(error);
+    products = await Product.find({}).limit(20);
+  } catch (e) {
+    console.error(e);
     return NextResponse.json({ error: 'An error occurred'}, { status: 500 });
   }
 
-  if (!product) {
-    return NextResponse.json({ product: null }, { status: 404 });
+  if (!products || products.length === 0) {
+    return NextResponse.json([], { status: 404 });
   }
 
-  return NextResponse.json({ product })
+  return NextResponse.json(products);
 }
