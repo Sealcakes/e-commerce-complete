@@ -1,0 +1,36 @@
+.productCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25vw;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px 0px rgba(136,136,136,0.75);
+  cursor: pointer;
+}
+
+.productCard:hover {
+  transform: translate(10px, -10px);
+}
+
+.productTitle {
+  text-align: center;
+  font-weight: 800;
+  padding: 10px;
+}
+
+.productImg {
+  height: 70px;
+  margin: 20px;
+}
+
+.productPrice {
+  font-weight: 800;
+}
+
+.productDescription {
+  margin: 10px;
+  border: 2px solid orange;
+  border-radius: 5px;
+  padding: 10px;
+}

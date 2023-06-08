@@ -10,11 +10,10 @@ export async function GET(request, { params }) {
   
   
   const id = params.id.split('_').slice(-1)[0];
-  console.log(id)
 
   let product;
   try {
-    product = await Product.findById(id, "Title Description")
+    product = await Product.findById(id, "Title Description 'Image Url' Price")
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: 'An error occurred'}, { status: 500 });

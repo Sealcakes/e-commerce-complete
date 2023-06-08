@@ -23,6 +23,7 @@ export default function Navbar() {
         height={170}
         width={170}
         className={styles.image}
+        onClick={() => location.href = '/'}
       />
       <div className={styles.gpsContainer}>
         <FontAwesomeIcon className={styles.icon} icon={faLocationDot} height={20}/>
