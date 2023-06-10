@@ -1,6 +1,8 @@
 'use client';
 
+import styles from './page.module.css';
 import { useParams } from 'next/navigation';
+import EmblaCarousel from '@/app/components/EmblaCarousel';
 
 async function fetchProduct(params) {
   try {
@@ -18,15 +20,32 @@ async function fetchProduct(params) {
   }
 }
 
+function urlSplitter(imageUrls) {
+  const urlArray = imageUrls.split('|');
+  return urlArray;
+}
+
 export default async function productPage() {
   const params = useParams();
   const product = await fetchProduct(params.id);
+  
+  const images = urlSplitter(product?.product['Image Url'])
+  const options = { loop: true }
+  
+  console.log(images);
   return (
-    <div>
-      <h2>{product.product.Title}</h2>
-      <img src={product.product['Image Url']}/>
-      <p>{product.product.Description}</p>
-      <p>{product.product.Price}</p>
+    <div className={styles.pageContainer}>
+      <div className={styles.productContainer}>
+        <h2>{product.product.Title}</h2>
+        <div className={styles.imageContainer}>
+          <EmblaCarousel slides={images} options={options} />
+          <div className={styles.priceContainer}>
+            <p className={styles.productPrice}>{product.product.Price}</p>
+            <button className={styles.cartBtn}>Add to Cart</button>
+          </div>
+        </div>
+        <p>{product.product.Description}</p>
+      </div>
     </div>
   )
 }

@@ -13,7 +13,7 @@ export async function GET() {
 
   let products;
   try {
-    products = await Product.find(query).limit(20);
+    products = await Product.find(query).limit(24);
   } catch (e) {
     console.error(e);
     return NextResponse.json({ error: 'An error occurred'}, { status: 500 });

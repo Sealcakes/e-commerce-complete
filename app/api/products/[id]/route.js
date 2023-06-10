@@ -13,7 +13,7 @@ export async function GET(request, { params }) {
 
   let product;
   try {
-    product = await Product.findById(id, "Title Description 'Image Url' Price")
+    product = await Product.findById(id);
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: 'An error occurred'}, { status: 500 });
