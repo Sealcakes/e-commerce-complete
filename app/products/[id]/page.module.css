@@ -13,16 +13,32 @@
   margin-top: 10vh;
 }
 
+.productTitle {
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 24px;
+}
+
 .imageContainer {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   gap: 5vw;
-  margin: 5vh 0;
+  margin: 5vh 0 10vh 5vw;
 }
 
 .productImage {
+  
+  width: 60vw;
+}
+
+.priceContainer {
+  display: flex;
+  justify-content: flex-start;
   width: 20vw;
+  gap: 20px;
 }
 
 .productPrice {
