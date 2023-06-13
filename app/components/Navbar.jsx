@@ -4,10 +4,31 @@ import Image from "next/image";
 import styles from "./Navbar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faLocationDot, faMagnifyingGlass, faCartShopping } from "@fortawesome/free-solid-svg-icons"
+import { useSession, signOut } from "next-auth/react";
+import { useState } from "react";
 
 
 
 export default function Navbar() {
+  const [showModal, setShowModal] = useState(false)
+  const { data } = useSession();
+  
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  }
+
+  const userProfile = (data) => {
+    if (data) {
+      return (
+        <img className={styles.profileBtn} src={data.user.image} alt="user profile" onClick={toggleModal}/>
+      )
+    } else {
+      return (
+        <button onClick={() => location.href = '/login'} className={styles.signinBtn}>Sign In</button>
+      )
+    }
+  }
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,11 +63,14 @@ export default function Navbar() {
         </form>
       </div>
       <div className={styles.btnsContainer}>
-        <div className={styles.signinBtnContainer}>
-          <button onClick={() => location.href = '/login'} className={styles.signinBtn}>Sign In</button>
-        </div>
         <div className={styles.cartBtnContainer}>
           <button onClick={handleSubmit} className={styles.cartBtn}><FontAwesomeIcon icon={faCartShopping} height={20}/></button>
+        </div>
+        <div className={styles.signinBtnContainer}>
+          {userProfile(data)}
+          <div className={`${styles.signoutModal} ${showModal ? styles.show : styles.hide}`}>
+            <button onClick={() => signOut(data)}>Sign Out</button>
+          </div>
         </div>
       </div>
     </div>
