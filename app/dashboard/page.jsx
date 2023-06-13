@@ -1,28 +1,22 @@
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 
 
-async function fetchProducts() {
-  const response = await fetch("http://localhost:3000/api/products", {
-    method: 'GET'
-  })
-  
-  return response;
+const ServerProtectedPage = async () => {
+  const session = await getServerSession(authOptions);
+
+  if (!session) {
+    redirect('/login?callbackUrl=/dashboard')
+  }
+
+  return (
+    <div>
+      <h1>Dashboard Page</h1>
+      <h2>This page should be protected</h2>
+      <h2>You are currently logged in as:</h2>
+      <p>{session?.user?.name}</p>
+    </div>
+  )
 }
-
-export default async function Dashboard() {
-
-  const products = await fetchProducts();
-  console.log(typeof products);
-
-    return(
-        <div>
-            <h2>This is the dashboard.</h2>
-            <ul>
-              {
-                Object.keys(products).map((product, idx) => (
-                  <li key={idx}>{product[title]}</li>
-                ))
-              }
-            </ul>
-        </div>
-    )
-}
+export default ServerProtectedPage;

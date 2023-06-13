@@ -15,8 +15,9 @@
   margin-left: 10px;
 }
 
-.icon {
+.gpsIcon {
   color: white;
+  margin-right: 5px;
 }
 
 .helloSpan {
@@ -62,7 +63,7 @@
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   padding: 10px;
-  background-color: orange;
+  background-color: orange !important;
   height: 35px;
 }
 

@@ -11,8 +11,6 @@ export default function Navbar() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log(e);
   }
 
   return (
@@ -26,7 +24,7 @@ export default function Navbar() {
         onClick={() => location.href = '/'}
       />
       <div className={styles.gpsContainer}>
-        <FontAwesomeIcon className={styles.icon} icon={faLocationDot} height={20}/>
+        <FontAwesomeIcon className={styles.gpsIcon} icon={faLocationDot} height={20}/>
         <span className={styles.helloSpan}>Hello <br /></span>
         <span className={styles.addressSpan}>Select your address!</span>
       </div>
@@ -45,7 +43,7 @@ export default function Navbar() {
       </div>
       <div className={styles.btnsContainer}>
         <div className={styles.signinBtnContainer}>
-          <button onClick={handleSubmit} className={styles.signinBtn}>Sign In</button>
+          <button onClick={() => location.href = '/login'} className={styles.signinBtn}>Sign In</button>
         </div>
         <div className={styles.cartBtnContainer}>
           <button onClick={handleSubmit} className={styles.cartBtn}><FontAwesomeIcon icon={faCartShopping} height={20}/></button>
