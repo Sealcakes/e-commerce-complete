@@ -18,7 +18,6 @@ export default function Login() {
         <div className={styles.separator}></div>
         <div className={styles.googleSignin}>
           <h4>Or Sign in with Google</h4>
-          {/* insert new google button here */}
           <GoogleSignInButton />
         </div>
       </div>

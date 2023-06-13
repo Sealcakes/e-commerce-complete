@@ -1,38 +1,49 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import styles from "./Navbar.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faLocationDot, faMagnifyingGlass, faCartShopping } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLocationDot,
+  faMagnifyingGlass,
+  faCartShopping,
+} from "@fortawesome/free-solid-svg-icons";
 import { useSession, signOut } from "next-auth/react";
 import { useState } from "react";
 
-
-
 export default function Navbar() {
-  const [showModal, setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(false);
   const { data } = useSession();
-  
+
   const toggleModal = () => {
     setShowModal(!showModal);
-  }
+  };
 
   const userProfile = (data) => {
     if (data) {
       return (
-        <img className={styles.profileBtn} src={data.user.image} alt="user profile" onClick={toggleModal}/>
-      )
+        <img
+          className={styles.profileBtn}
+          src={data.user.image}
+          alt="user profile"
+          onClick={toggleModal}
+        />
+      );
     } else {
       return (
-        <button onClick={() => location.href = '/login'} className={styles.signinBtn}>Sign In</button>
-      )
+        <button
+          onClick={() => (location.href = "/login")}
+          className={styles.signinBtn}
+        >
+          Sign In
+        </button>
+      );
     }
-  }
-
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  }
+  };
 
   return (
     <div className={styles.navbar}>
@@ -42,33 +53,51 @@ export default function Navbar() {
         height={170}
         width={170}
         className={styles.image}
-        onClick={() => location.href = '/'}
+        onClick={() => (location.href = "/")}
       />
       <div className={styles.gpsContainer}>
-        <FontAwesomeIcon className={styles.gpsIcon} icon={faLocationDot} height={20}/>
-        <span className={styles.helloSpan}>Hello <br /></span>
+        <FontAwesomeIcon
+          className={styles.gpsIcon}
+          icon={faLocationDot}
+          height={20}
+        />
+        <span className={styles.helloSpan}>
+          Hello <br />
+        </span>
         <span className={styles.addressSpan}>Select your address!</span>
       </div>
       <div className={styles.searchBar}>
         <form onSubmit={handleSubmit} className={styles.searchBarForm}>
           <select className={styles.selectBox}>
-            <option value='all-departments'>All</option>
-            <option value='electronics'>Electronics</option>
-            <option value='books'>Books</option>
-            <option value='music'>CDs & Vinyls</option>
-            <option value='gaming'>Gaming</option>
+            <option value="all-departments">All</option>
+            <option value="electronics">Electronics</option>
+            <option value="books">Books</option>
+            <option value="music">CDs & Vinyls</option>
+            <option value="gaming">Gaming</option>
           </select>
-          <input className={styles.searchBarInput} type="text" placeholder="Search Congo..." />
-          <button className={styles.searchIcon} type="submit"><FontAwesomeIcon icon={faMagnifyingGlass} height={20}/></button>
+          <input
+            className={styles.searchBarInput}
+            type="text"
+            placeholder="Search Congo..."
+          />
+          <button className={styles.searchIcon} type="submit">
+            <FontAwesomeIcon icon={faMagnifyingGlass} height={20} />
+          </button>
         </form>
       </div>
       <div className={styles.btnsContainer}>
         <div className={styles.cartBtnContainer}>
-          <button onClick={handleSubmit} className={styles.cartBtn}><FontAwesomeIcon icon={faCartShopping} height={20}/></button>
+          <button onClick={handleSubmit} className={styles.cartBtn}>
+            <FontAwesomeIcon icon={faCartShopping} height={20} />
+          </button>
         </div>
         <div className={styles.signinBtnContainer}>
           {userProfile(data)}
-          <div className={`${styles.signoutModal} ${showModal ? styles.show : styles.hide}`}>
+          <div
+            className={`${styles.signoutModal} ${
+              showModal ? styles.show : styles.hide
+            }`}
+          >
             <button onClick={() => signOut(data)}>Sign Out</button>
           </div>
         </div>

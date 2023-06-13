@@ -1,0 +1,25 @@
+.embla {
+  width: 25vw;
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+.embla__prev {
+  font-size: 36px;
+  position: absolute;
+  left: 12vw;
+  top: 50vh;
+}
+
+.embla__next {
+  font-size: 36px;
+  position: absolute;
+  top: 50vh;
+  left: 39vw;
+}

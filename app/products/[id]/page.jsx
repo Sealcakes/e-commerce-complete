@@ -25,6 +25,8 @@ export default async function productPage() {
   const params = useParams();
   const product = await fetchProduct(params.id);
   
+  const images = product.images.split("|");
+  const options = { loop: true }
   
   
   return (
@@ -32,8 +34,7 @@ export default async function productPage() {
       <div className={styles.productContainer}>
         <h2 className={styles.productTitle}>{product.title}</h2>
         <div className={styles.imageContainer}>
-          <img src={product.main_image} />
-          {/* <EmblaCarousel slides={images} options={options} /> */}
+          <EmblaCarousel slides={images} options={options} />
           <div className={styles.priceContainer}>
             <p className={styles.productPrice}>{product.price}</p>
             <button className={styles.cartBtn}>Add to Cart</button>
