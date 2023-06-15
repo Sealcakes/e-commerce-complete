@@ -26,8 +26,12 @@ export default async function Home() {
   return (
     <main>
       <div className={styles.heroSection}>
-        <h2>Homepage</h2>
-        <CardList products={products} />
+        <div className={styles.bannerContainer}>
+          <img className={styles.saleBanner} src="/SaleBanner.png" alt="sale banner" />
+        </div>
+        <div className={styles.productContainer}>
+          <CardList products={products} />
+        </div>
       </div>
     </main>
   );

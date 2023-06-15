@@ -12,11 +12,22 @@ import { useSession, signOut } from "next-auth/react";
 import { useState } from "react";
 
 export default function Navbar() {
-  const [showModal, setShowModal] = useState(false);
+  const [showProfileModal, setShowProfileModal] = useState(false);
+  const [showCartModal, setShowCartModal] = useState(false);
   const { data } = useSession();
 
-  const toggleModal = () => {
-    setShowModal(!showModal);
+  const toggleProfileModal = () => {
+    setShowProfileModal(!showProfileModal);
+    if (!showProfileModal) {
+      setShowCartModal(false);
+    }
+  };
+
+  const toggleCartModal = () => {
+    setShowCartModal(!showCartModal);
+    if (!showCartModal) {
+      setShowProfileModal(false);
+    }
   };
 
   const userProfile = (data) => {
@@ -26,7 +37,7 @@ export default function Navbar() {
           className={styles.profileBtn}
           src={data.user.image}
           alt="user profile"
-          onClick={toggleModal}
+          onClick={toggleProfileModal}
         />
       );
     } else {
@@ -87,15 +98,23 @@ export default function Navbar() {
       </div>
       <div className={styles.btnsContainer}>
         <div className={styles.cartBtnContainer}>
-          <button onClick={handleSubmit} className={styles.cartBtn}>
+          <button onClick={toggleCartModal} className={styles.cartBtn}>
             <FontAwesomeIcon icon={faCartShopping} height={20} />
           </button>
+          <div
+            className={`${styles.cartModal} ${
+              showCartModal ? styles.show : styles.hide
+            }`}
+          >
+            {/* Automatically update cart with items or if empty show cart is empty */}
+            <h2 className={styles.cartModalH2}>Your Cart</h2>
+          </div>
         </div>
         <div className={styles.signinBtnContainer}>
           {userProfile(data)}
           <div
             className={`${styles.signoutModal} ${
-              showModal ? styles.show : styles.hide
+              showProfileModal ? styles.show : styles.hide
             }`}
           >
             <button onClick={() => signOut(data)}>Sign Out</button>

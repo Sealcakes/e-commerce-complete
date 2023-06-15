@@ -4,4 +4,11 @@
   align-items: center;
 }
 
+.saleBanner {
+  margin-top: 2vh;
+  height: 70vh;
+}
 
+.productContainer {
+  margin-top: -26vh;
+}
