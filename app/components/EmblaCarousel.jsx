@@ -18,7 +18,7 @@ const EmblaCarousel = (props) => {
 
   return (
     <div className={styles.embla}>
-      <button class={styles.embla__prev} onClick={scrollPrev}><FontAwesomeIcon icon={faChevronLeft} /></button>
+      <button className={styles.embla__prev} onClick={scrollPrev}><FontAwesomeIcon icon={faChevronLeft} /></button>
       <div className={styles.embla__viewport} ref={emblaRef}>
         <div className={styles.embla__container}>
           {slides.map((slide, idx) => (
